@@ -1,0 +1,628 @@
+/* General Styles */
+body {
+    /* Basic styling */
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    position: relative; /* Required for pseudo-element positioning */
+
+    /* Ensures content is above the pseudo-element */
+    z-index: 1;
+}
+
+body::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("Thumbnail\Backgroundimage.jpeg") repeat;
+    background-size: auto; /* Adjust this to scale the pattern */
+    background-position: center center;
+
+    /* Mirrored effect */
+    transform: scaleX(-1);
+    z-index: -1; /* Places the pseudo-element behind the content */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navigation Styles */
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #000;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e64833;
+}
+
+/* Hero Section Styles 
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #292b2c;
+    color: white;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #e64833;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e85d4e;
+}*/
+/* Video Background */
+.intro-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;  /*Ensure text stands out */
+    overflow: hidden; /* Hide overflow to fit video */
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Cover the entire section */
+    z-index: -1; /* Place behind content */
+}
+
+.intro-content {
+    z-index: 1; /* Place content above video */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
+    border-radius: 10px;
+}
+
+.intro-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.intro-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #6a11cb; /* Gradient button */
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(120deg, #2575fc, #6a11cb);
+}
+.intro-section {
+    background: url('path/to/fallback-image.jpg') center/cover no-repeat;
+}
+
+/* Education Section*/
+.education-section {
+    background: linear-gradient(to right, #2b5876, #4e4376); /* Gradient background */
+    padding: 60px 20px;
+    color: #fff;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #e64833;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  .education-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .education-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .education-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .education-item h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #e64833;
+  }
+  
+  .education-item p {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  
+  .education-item span {
+    font-style: italic;
+    color: #ccc;
+  }
+  
+/* Projects Section Styles */
+.projects-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.project-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: #fff;
+    width: 250px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* Contact Section Styles */
+.contact-section {
+    padding: 60px 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 12px;
+    margin: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.contact-section button {
+    padding: 12px 20px;
+    background-color: #e64833;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-section button:hover {
+    background-color: #e85d4e;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #292b2c;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Projects Section 
+.projects-section {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.project-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}*/
+
+/* Project Card Styling */
+.projects-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    text-align: left;
+    padding: 20px;
+    background: #fff;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #e64833;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.project-link:hover {
+    background: #e55d50;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6160605e;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 1;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+.project-image {
+    width: auto;
+    height:auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+}
+
+/*About ME Section*/
+#about-me {
+    width: 100%; /* Ensures the section takes up the full width */
+    padding: 60px 20px; /* Adds spacing inside the section */
+    background-color: #000; /* Optional background color for contrast */
+    text-align: center; /* Center-aligns the text */
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+#about-me h2 {
+    font-size: 2.8em; /* Larger heading size */
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#about-me p {
+    font-size: 1.2em; /* Adjust text size */
+    color: #555;
+    line-height: 1.8; /* Improves readability */
+    margin: 0 auto;
+}
+#about-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    #about-me h2 {
+        font-size: 2em;
+    }
+
+    #about-me p {
+        font-size: 1em;
+    }
+}
+/* Skills Section */
+#skills {
+    padding: 60px 20px;
+    background-color: #eaf2f8;
+    text-align: center;
+}
+
+#skills h2 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Certifications Section */
+#certifications {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+#certifications h2 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.certifications-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.certificate-card {
+    text-align: center;
+    width: 200px; /* Adjust as needed */
+}
+
+.certificate-card img {
+    width: 100%; /* Ensures image scales properly */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-card p {
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+}
+@media (max-width: 768px) {
+    .certifications-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .certificate-card {
+        width: 90%; /* Adjusts the card width for smaller screens */
+    }
+}
+#contact {
+    padding: 60px 20px;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-link {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    transition: transform 0.3s ease;
+}
+
+.contact-link:hover {
+    transform: scale(1.1);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#contact-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-btn:hover {
+    background-color: #1abc9c;
+}
+
+/* Contact Form */
+#contact-form {
+    margin-top: 20px;
+    text-align: left;
+    display: none;
+}
+
+#contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#send-btn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #c0392b;
+}
