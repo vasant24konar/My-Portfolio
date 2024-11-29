@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasant's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init("5cXLuIGPqxEaYamF3"); // Replace with your actual public key
+    </script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="#about-me">About Me</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li> 
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <section class="intro-section">
+            <video autoplay muted loop class="background-video">
+                <source src="Thumbnail\Backgroundvideo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div class="intro-content">
+                <h1>Hi, I'm Vasant!</h1>
+                <p>I'm a Web Developer, UI/UX Designer, and a Content Creator.</p>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </section>
+
+    <!--About Me Section-->
+    <section id="about-me">
+        <h2>About Me</h2>
+        <p>Welcome to my portfolio!
+        I’m an enthusiastic Web Developer with 11 months of practical experience working with Flutter Flow technology, focusing on designing and developing user-friendly UI/UX solutions. I’ve had the opportunity to contribute to the creation of more than 3+ mobile applications, all of which are now available on the Google Play Store. I’ve developed hands-on expertise through academic projects, hackathons, and internships, which have honed my skills in real-world problem-solving and innovation. I excel in collaborating across teams, managing my time effectively, and quickly learning and adapting to new technologies in dynamic, fast-paced settings.</li>
+        </p>
+    </section>
+
+    <!--Education Section-->
+    <section id="education" class="education-section">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="education-content">
+            <div class="education-item">
+              <h3>Bachelor of Technology in Computer Science</h3>
+              <p><strong>Ahmedabad Institute Of Technology</strong> | <span>2021 - 2025</span></p>
+              <la> CGPA: 9.15(till now) </li>
+               <li>Focused on Web Development, Cloud Computing, and Artificial Intelligence.</li> 
+                <li>Developed hands-on expertise through academic projects, hackathons, and internships.</li>
+                <li>Actively engaged in learning emerging technologies to build innovative solutions. </li>
+            </div>
+            <div class="education-item">
+              <h3>High School </h3>
+              <p><strong>Ananya Vidyalaya</strong> | <span>2020 - 2021</span></p>
+              <li>Specialized in Science (PCM). Achieved an excellent academic record.</li>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!--Project Section-->
+      <section id="projects" class="projects-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <!-- Project 1: HawkEyeX -->
+                <div class="carousel-item">
+                    <img src="Thumbnail\HawkEyeX.jpg" alt="HawkEyeX Screenshot" class="project-image">
+                    <h3>HawkEyeX</h3>
+                    <p><strong>Technologies:</strong> Python, HTML, CSS</p>
+                    <p>Automated crack detection system using image processing. Enhanced safety by identifying structural defects early through edge detection algorithms and OpenCV.</p>
+                    <a href="https://github.com/mannsoni/HawkEyeX" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <!-- Project 2: JollyHires -->
+                <div class="carousel-item">
+                    <img src="Thumbnail\JollyHires.jpg" alt="JollyHires App Screenshot" class="project-image">
+                    <h3>JollyHires</h3>
+                    <p><strong>Technologies:</strong> Flutter Flow, Superbase</p>
+                    <p>App for managing candidate profiles, job listings, and real-time communication. Published on Play Store with 50K+ downloads.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.jollyhires.jobs" target="_blank" class="project-link">View on Play Store</a>
+                </div>
+    
+                <!-- Project 3: GeMLoot -->
+                <div class="carousel-item">
+                    <img src="Thumbnail\GemLoot.jpg" alt="GeMLoot Screenshot" class="project-image">
+                    <h3>GeMLoot</h3>
+                    <p><strong>Technologies:</strong> JavaScript, HTML, CSS</p>
+                    <p>Browser extension to compare prices across e-commerce platforms using web scraping. Real-time price updates and notifications.</p>
+                    <a href="https://github.com/mannsoni/GeMloot" target="_blank" class="project-link">View Project</a>
+                </div>
+    
+                <!-- Project 4: Smart File Sorter -->
+                <div class="carousel-item">
+                    <img src="Thumbnail\Smart File Sorting.jpg" alt="Smart File Sorter Screenshot" class="project-image">
+                    <h3>Smart File Sorter</h3>
+                    <p><strong>Technologies:</strong> Python, Tkinter</p>
+                    <p>Organized folder contents into categories, provided real-time file stats, and featured intuitive visual icons for file types.</p>
+                    <a href="https://github.com/vasant24konar/Smart-File-Sorter" target="_blank" class="project-link">View Project</a>
+                </div>
+
+                <!-- Project 5: Ceorra ATS-->
+                <div class="carousel-item">
+                    <img src="Thumbnail\Ceorra ATS.png" alt="Ceorra ATS Screenshot" class="project-image">
+                    <h3>Ceorra ATS</h3>
+                    <p><strong>Technologies:</strong> Flutter Flow, Superbase, Xano</p>
+                    <p>A user-friendly sales management and CRM tool with features like lead tracking, user authentication, and a streamlined dashboard, enhancing collaboration and sales efficiency </p>
+                    <p>Actively used by my previous company. </p>
+                    <a href="https://ceorrabenchsales.flutterflow.app/login" target="_blank" class="project-link">View Project</a>
+                </div> 
+    
+                            </div>
+            
+            <!-- Carousel Navigation -->
+            <div class="carousel-btn"></div>
+            <button class="carousel-control prev">❮</button>
+            <button class="carousel-control next">❯</button>
+        </div>
+        </div>
+    </section>
+    
+    <!--Skill Section-->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container" >
+            <div class="skill">
+                <img src="Thumbnail\HTML&CSS.png" alt="HTML & CSS" class="skill-logo" />
+                <p><h1>HTML & CSS</h1></p>
+            </div>
+            <div class="skill">
+                <img src="Thumbnail\FlutterFlow.png" alt="Flutter Flow" class="skill-logo" />
+                <p><h1>Flutter Flow</h1></p></div>
+            <div class="skill">
+                <img src="Thumbnail\Python.png" alt="Python" class="skill-logo" />
+               <p> <h1>Python</h1></p>
+            </div>
+            <div class="skill">
+                <img src="Thumbnail\JS.png" alt="JavaScript" class="skill-logo" />
+               <p> <h1>JavaScript</h1></p>
+            </div>
+             <div class="skill">
+                <img src="Thumbnail\Firebase.png" alt="Firebase" class="skill-logo" />
+                <p><h1>Firebase</h1></p>
+            </div>
+            <div class="skill">
+                <img src="Thumbnail\UIUX.png" alt="UI/UX Designing" class="skill-logo" />
+                <p><h1>UI/UX Designing</h1></p>
+            </div>
+            <div class="skill">
+                <img src="Thumbnail\Canva.png" alt="Canva" class="skill-logo" />
+                    <p><h1>Canva</h1> </p>
+            </div>
+            <div class="skill">
+                <img src="Thumbnail\Figma.png" alt="Figma" class="skill-logo" />
+                    <p><h1>Figma</h1></p>
+            </div>
+        </div>
+    </section>
+    
+    <!--Certificate Section-->
+    <section id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certifications-container">
+
+            
+            <!-- Certification 1 -->
+            <div class="certificate-card">
+                <a href="https://drive.google.com/file/d/13f8FiAQKA_mS7ffGKWgXQEQ694iAlfAQ/view?usp=sharing" target="_blank">
+                    <img src="Thumbnail\Vasant Konar-2_page-0001.jpg" alt="DSA-based hackathon organized by Hack Champ" class="certificate-img">
+                </a>
+                <h1>DSA-based hackathon held by Hack Champ</h1>
+            </div>
+    
+            <!-- Certification 2 -->
+            <div class="certificate-card">
+                <a href="https://drive.google.com/file/d/11Mk5MP9V-ytPArNLgSHog633S0OHxRY3/view?usp=sharing" target="_blank">
+                    <img src="Thumbnail\ThmbnailSIH Hackathon 2023.jpg" alt="SIH Hackathon 2023" class="certificate-img">
+                </a>
+                <h1>Internal SIH Hackathon 2023</h1>
+            </div>
+    
+            <!-- Certification 3 -->
+            <div class="certificate-card">
+                <a href="https://drive.google.com/file/d/13oYNsFCNQYD31fZvGEOcAUPfYiKta5Ym/view?usp=sharing" target="_blank">
+                    <img src="Thumbnail\image-400x300 (2).jpg" alt="Code Unnati Innovation Marathon" class="certificate-img">
+                </a>
+                <h1>Code Unnati Innovation Marathon</h1>
+            </div>
+
+            <!-- Certification 4-->
+            <div class="certificate-card">
+                <a href="https://drive.google.com/file/d/13cTF_Fk_FoFAF0Km16_X-WzvHKXGuzkH/view?usp=sharing" target="_blank">
+                    <img src="Thumbnail\image-400x300 (1).jpg" alt="Advance course on Emerging Technology" class="certificate-img">
+                </a>
+                <h1>Advance Course on Emerging Technology</h1>
+            </div>
+
+            <!-- Certification 5 -->
+            <div class="certificate-card">
+                <a href="https://drive.google.com/file/d/13rMTwc23pO5fZzD11HNAGy5ipDyavfE0/view?usp=sharing" target="_blank">
+                    <img src="Thumbnail\image-400x300 (3).jpg" alt="Azure Fundamental Challenges" class="certificate-img">
+                </a>
+                <h1>Azure Fundamental Challenges</h1>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+<!--Contact Section-->
+    <section id="contact" >
+        <h2>Contact Me</h2>
+        
+        <div class="contact-icons" class="btn">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/vasant-konar-576793255" target="_blank" class="contact-link">
+                <img src="Thumbnail\linkedin.png"alt="LinkedIn" class="contact-icon">
+                <p>LinkedIn</p>
+            </a>
+    
+            <!-- GitHub -->
+            <a href="https://github.com/vasant24konar " target="_blank" class="contact-link">
+                <img src="Thumbnail\github.png" alt="GitHub" class="contact-icon">
+                <p>GitHub</p>
+            </a>
+    
+            <!-- Email -->
+            <a href="mailto:vasant24konar@gmail.com" class="contact-link">
+                <img src="Thumbnail\email.png" alt="Email" class="contact-icon">
+                <p>Email</p>
+            </a>
+    
+            <!-- Contact Number -->
+            <a href="tel:+919316662350" class="contact-link">
+                <img src="Thumbnail\phone.png" alt="Phone" class="contact-icon">
+                <p>Phone</p>
+            </div>
+        </div>
+    
+        <button id="contact-btn" class="btn">Contact Me</button>
+    
+        <!-- Hidden Form -->
+        <form id="contact-form" style="display: none;">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+    
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+    
+            <button type="button" id="send-btn">Send Notification</button>
+        </form>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2024 Vasant. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
