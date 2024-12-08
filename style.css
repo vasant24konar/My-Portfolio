@@ -8,6 +8,7 @@ body {
 
     /* Ensures content is above the pseudo-element */
     z-index: 1;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -29,7 +30,7 @@ body::before {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: 100%;
     font-family: 'Arial', sans-serif;
 }
 
@@ -221,7 +222,28 @@ nav ul li a:hover {
     color: #ccc;
   }
   
-/* Projects Section Styles */
+/* Projects Section Styles
+.projects-section {
+    background: linear-gradient(to right, #0db74e, #2a66a2);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.project-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}*/
+
+/* Project Card Styling */
 .projects-section {
     background-color: #f9f9f9;
     padding: 60px 20px;
@@ -231,26 +253,101 @@ nav ul li a:hover {
 .projects-section h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
+    color: #333;
 }
 
-.project-cards {
+.carousel-container {
+    position: relative;
+    overflow-wrap: auto;
+    width: 60%;
+    margin: auto;
+}
+
+.carousel {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    transition: transform 0.5s ease-in-out;
 }
 
-.project-card {
-    background-color: #fff;
-    width: 250px;
-    padding: 20px;
-    margin: 15px;
+.carousel-item {
+    flex: 0 0 100%;
+    text-align: left;
+    padding:10px;
+    background: #fff;
+    margin: 30px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    opacity: 0.8;
+    transition: transform 0.3s, opacity 0.3s;
+    display: ruby-base-container; /* Hide all cards initially */
+  
 }
 
-.project-card:hover {
+.carousel-item.active {
+    display: block; /* Make the active card visible */
+    opacity: 1;
+    
+    
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    /*background: #e64833;*/
+    background: #6a11cb; /* Gradient button */
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.project-link:hover {
+    background: #2575fc; /* Gradient button */
+    background: linear-gradient(120deg, #2575fc, #6a11cb);
+}
+
+.carousel-control {
+    position: absolute;
+    bottom: 45% ;
+    transform: translateY(-50%);
+    background: #6a11cb;  /*Gradient button */
+    background: linear-gradient(120deg, #2575fc, #6a11cb);
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 1;
+}
+
+.carousel-control.prev {
+    left: 15px;
+   
+    
+}
+
+.carousel-control.next {
+    right:15px;
+}
+.project-image {
+    width: auto;
+    height:auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.project-image:hover {
     transform: scale(1.05);
 }
+
 
 
 
@@ -307,120 +404,6 @@ footer {
     to {
         opacity: 1;
     }
-}
-/*Projects Section*/ 
-/*.projects-section {
-    background: linear-gradient(to right, #0db74e, #2a66a2);
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.projects-section h2 {
-    font-size: 2.8em;
-    color: #2c3e50;
-    margin-bottom: 40px;
-    animation: fadeIn 1s ease-in-out;
-}
-
-.project-cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-}*/
-
-/* Project Card Styling */
-.projects-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.projects-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    flex: 0 0 100%;
-    text-align: left;
-    padding: 20px;
-    background: #fff;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    opacity: 0.8;
-    transition: transform 0.3s, opacity 0.3s;
-}
-
-.carousel-item:hover {
-    transform: scale(1.05);
-    opacity: 1;
-}
-
-.project-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    /*background: #e64833;*/
-    background: #6a11cb; /* Gradient button */
-    background: linear-gradient(120deg, #6a11cb, #2575fc);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.project-link:hover {
-    background: #2575fc; /* Gradient button */
-    background: linear-gradient(120deg, #2575fc, #6a11cb);
-}
-
-.carousel-control {
-    position: absolute;
-    top: 80%;
-    transform: translateY(-50%);
-    background: #6a11cb;  /*Gradient button */
-    background: linear-gradient(120deg, #2575fc, #6a11cb);
-    color: #ffffff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 1.5em;
-    z-index: 1;
-}
-
-.carousel-control.prev {
-    left: 15px;
-}
-
-.carousel-control.next {
-    right:15px;
-}
-.project-image {
-    width: auto;
-    height:auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease-in-out;
-}
-
-
-.project-image:hover {
-    transform: scale(1.05);
 }
 
 /*About ME Section*/
@@ -646,3 +629,154 @@ footer {
     background: #2575fc; /* Gradient button */
     background: linear-gradient(120deg, #2575fc, #6a11cb );
 }
+
+/* Responsive Style */
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("Thumbnail/Backgroundimage.jpeg") repeat;
+    background-size: auto;
+    background-position: center center;
+    transform: scaleX(-1);
+    z-index: -1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navigation Styles */
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #000;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #6a11cb;
+}
+
+/* Hero Section Styles */
+.intro-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.intro-content {
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.intro-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.intro-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(120deg, #2575fc, #6a11cb);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .intro-content h1 {
+        font-size: 2.5rem;
+    }
+    .intro-content p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .intro-content h1 {
+        font-size: 2rem;
+    }
+    .intro-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+

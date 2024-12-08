@@ -106,7 +106,7 @@ $(document).ready(function () {
                 currentIndex = 0;
             }
             isAnimating = false;
-        }, 500); // Match transition duration
+        }, 100); // Match transition duration
     }
 
     // Next button functionality
