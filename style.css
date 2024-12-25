@@ -257,9 +257,9 @@ nav ul li a:hover {
 }
 
 .carousel-container {
-    position: relative;
+    position: flex;
     overflow-wrap: auto;
-    width: 60%;
+    width: 50%;
     margin: auto;
 }
 
@@ -271,6 +271,7 @@ nav ul li a:hover {
 .carousel-item {
     flex: 0 0 100%;
     text-align: left;
+    text-overflow: clip;
     padding:10px;
     background: #fff;
     margin: 30px;
@@ -278,13 +279,14 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     opacity: 0.8;
     transition: transform 0.3s, opacity 0.3s;
-    display: ruby-base-container; /* Hide all cards initially */
   
 }
 
 .carousel-item.active {
-    display: block; /* Make the active card visible */
+   /* display: block;  Make the active card visible */
     opacity: 1;
+    border: 2px solid #6a11cb; /* Add a border to the active item */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow */
     
     
 }
@@ -315,7 +317,7 @@ nav ul li a:hover {
 .carousel-control {
     position: absolute;
     bottom: 45% ;
-    transform: translateY(-50%);
+    transform: translateY(-80%);
     background: #6a11cb;  /*Gradient button */
     background: linear-gradient(120deg, #2575fc, #6a11cb);
     color: #ffffff;
@@ -638,6 +640,7 @@ body {
     padding: 0;
     font-family: 'Arial', sans-serif;
     position: relative;
+    overflow-x: hidden;
     z-index: 1;
 }
 
@@ -750,17 +753,67 @@ nav ul li a:hover {
     background: linear-gradient(120deg, #2575fc, #6a11cb);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
+
+
+/* Show the nav button on tablets and larger devices (e.g., screens 768px and above) */
+@media (min-width: 768px) {
+    body 
+    {
+        overflow-x: hidden;
+    z-index: 1;
+    }
+    .carousel-btn {
+        display: none;  /* Show the button on tablets and desktops */
+    }
+}
+@media (max-width: 767px) 
+{
+    .carousel-container {
+        width: 100%; /* Take up full width on mobile */
+        margin: 0; /* Remove margin */
+    }
+    
+
+    .carousel {
+        display: inline-flex; /* Inline flex for horizontal scroll */
+        overflow-y: auto; /* Enable vertical scrolling */
+        gap: 10px; /* Adjust gap between items */
+        padding-bottom: 20px; /* Add padding to the bottom */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-item {
+        flex: 0 0 auto; /* Allow items to take up space based on their content */
+        min-width: 80%; /* Set width of items for mobile view */
+        margin: 10px; /* Reduce margin on mobile */
+        box-shadow: none; /* Optionally remove shadow on mobile */
+
+    }
+
+    .carousel-item.active {
+        display: block;
+        border: none;
+        opacity: 1;
+    }
+    .carousel-control{
+        display: none;
+    }
+
+    .carousel-item:hover {
+        transform: scale(1); /* Optional: Remove hover scaling on mobile */
+    }
+
+    .project-link {
+        font-size: 14px; /* Optionally adjust button font size */
+    }
+
     .intro-content h1 {
         font-size: 2.5rem;
     }
     .intro-content p {
         font-size: 1.2rem;
     }
-}
-
-@media (max-width: 768px) {
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -771,9 +824,6 @@ nav ul li a:hover {
     .intro-content p {
         font-size: 1rem;
     }
-}
-
-@media (max-width: 480px) {
     .btn {
         font-size: 1rem;
         padding: 8px 16px;

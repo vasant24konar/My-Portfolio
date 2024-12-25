@@ -79,78 +79,96 @@ $(document).ready(function () {
 $(document).ready(function () {
     const carousel = $('.carousel'); // Carousel container
     const items = $('.carousel-item'); // All carousel items
-    const itemWidth = 100; // Assume each item is 100% width
     const itemCount = items.length; // Total number of items
-
-    // Clone the first item to the end for seamless looping
-    const firstItemClone = items.first().clone();
-    carousel.append(firstItemClone);
+    const itemWidth = items.outerWidth(true); // Get the width of a single item, including margin
 
     let currentIndex = 0; // Current active index
     let isAnimating = false; // To prevent overlapping animations
 
+    // Function to move the carousel and highlight the active item
     function moveCarousel() {
         if (isAnimating) return; // Skip if already animating
         isAnimating = true;
 
-        // Animate to the next slide
+        // Animate to the next item (horizontal carousel)
         carousel.css('transition', 'transform 0.5s ease-in-out');
-        carousel.css('transform', `translateX(${-currentIndex * itemWidth}%)`);
+        carousel.css('transform', `translateX(${-currentIndex * itemWidth}px)`);
 
-        // Check if we're on the cloned slide
+        // Highlight the active item and reset others
+        items.removeClass('active'); // Remove 'active' class from all items
+        $(items[currentIndex]).addClass('active'); // Add 'active' class to the current item
+
+        // Cycle through the items smoothly
         setTimeout(() => {
-            if (currentIndex >= itemCount) {
-                // Reset position to the original first slide
-                carousel.css('transition', 'none');
-                carousel.css('transform', 'translateX(0%)');
-                currentIndex = 0;
-            }
             isAnimating = false;
-        }, 100); // Match transition duration
+        }, 500); // Match transition duration
     }
 
     // Next button functionality
     $('.next').click(function () {
         currentIndex++;
+        if (currentIndex >= itemCount) {
+            currentIndex = 0; // Reset to first item if we reach the end
+        }
         moveCarousel();
     });
 
     // Previous button functionality
     $('.prev').click(function () {
         if (isAnimating) return; // Skip if already animating
-
         if (currentIndex === 0) {
-            // Jump to the cloned last slide
-            carousel.css('transition', 'none');
-            carousel.css('transform', `translateX(${-itemCount * itemWidth}%)`);
-            currentIndex = itemCount - 1; // Set to the last real slide
+            currentIndex = itemCount - 1; // Jump to last item if at the first one
         } else {
             currentIndex--;
         }
-
-        setTimeout(moveCarousel, 50); // Add delay for smooth transition
+        moveCarousel();
     });
 
-    
-});
-
-document.getElementById('contact-btn').addEventListener('click', () => {
-    const form = document.getElementById('contact-form');
-    form.style.display = form.style.display === 'none' ? 'block' : 'none';
-});
-
-document.getElementById('send-btn').addEventListener('click', () => {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-        return;
+    // Adjust layout for smaller screens (no carousel, just column format)
+    if ($(window).width() <= 767) {
+        // Switch to a column layout for small screens
+        carousel.css('display', 'block');
+        items.css('display', 'block'); // Stack items vertically
+        $('.next, .prev').hide(); // Hide navigation buttons on small screens
+    } else {
+        // Ensure the carousel is in the correct state for larger screens
+        $('.next, .prev').show(); // Show navigation buttons for large screens
+        carousel.css('display', 'flex'); // Keep the carousel as flex for horizontal layout
     }
 
-    emailjs
-        .send("service_krk1nkk", "template_9nb0kjq", {
+    // Optional: Recheck the layout when the window resizes
+    $(window).resize(function () {
+        if ($(window).width() <= 767) {
+            // Switch to column layout for small screens
+            carousel.css('display', 'block');
+            items.css('display', 'block');
+            $('.next, .prev').hide(); // Hide navigation buttons
+        } else {
+            // Switch back to the carousel for large screens
+            $('.next, .prev').show();
+            carousel.css('display', 'flex');
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('contact-btn').addEventListener('click', () => {
+        const form = document.getElementById('contact-form');
+        form.classList.toggle('hidden'); // Toggle 'hidden' class
+    });
+
+    document.getElementById('send-btn').addEventListener('click', () => {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (!name || !email || !message) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        emailjs.send("service_krk1nkk", "template_9nb0kjq", {
             from_name: name,
             from_email: email,
             message: message,
@@ -163,4 +181,5 @@ document.getElementById('send-btn').addEventListener('click', () => {
             console.error('Error sending notification:', error);
             alert('Failed to send notification. Please try again.');
         });
+    });
 });
