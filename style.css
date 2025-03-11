@@ -222,14 +222,8 @@ nav ul li a:hover {
     color: #ccc;
   }
   
-/* Projects Section Styles
-.projects-section {
-    background: linear-gradient(to right, #0db74e, #2a66a2);
-    padding: 60px 20px;
-    text-align: center;
-}
 
-.projects-section h2 {
+/*.projects-section h2 {
     font-size: 2.8em;
     color: #2c3e50;
     margin-bottom: 40px;
@@ -244,64 +238,58 @@ nav ul li a:hover {
 }*/
 
 /* Project Card Styling */
+/* Default carousel styles (Desktop & Tablet) */
+/* Carousel Container */
 .projects-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
-    text-align: center;
+    background-color: #ffffff; /* White Background */
+    padding: 50px 0; /* Add some spacing */
+    text-align: center; /* Center-align content */
 }
-
-.projects-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #333;
-}
-
 .carousel-container {
     position: flex;
-    overflow-wrap: auto;
-    width: 50%;
+    overflow: wrap;
+    max-width:800px;
+    width: 80%;
     margin: auto;
 }
 
+/* Carousel */
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
+/* Carousel Items */
 .carousel-item {
     flex: 0 0 100%;
     text-align: left;
-    text-overflow: clip;
-    padding:10px;
+    padding: 10px;
     background: #fff;
     margin: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     opacity: 0.8;
     transition: transform 0.3s, opacity 0.3s;
-  
 }
 
+/* Active Item */
 .carousel-item.active {
-   /* display: block;  Make the active card visible */
     opacity: 1;
-    border: 2px solid #6a11cb; /* Add a border to the active item */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow */
-    
-    
+    border: 2px solid #6a11cb;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Hover Effect */
 .carousel-item:hover {
     transform: scale(1.05);
     opacity: 1;
 }
 
+/* Project Link */
 .project-link {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
-    /*background: #e64833;*/
-    background: #6a11cb; /* Gradient button */
     background: linear-gradient(120deg, #6a11cb, #2575fc);
     color: #fff;
     text-decoration: none;
@@ -310,15 +298,14 @@ nav ul li a:hover {
 }
 
 .project-link:hover {
-    background: #2575fc; /* Gradient button */
     background: linear-gradient(120deg, #2575fc, #6a11cb);
 }
 
+/* Navigation Controls */
 .carousel-control {
     position: absolute;
-    bottom: 45% ;
-    transform: translateY(-80%);
-    background: #6a11cb;  /*Gradient button */
+    bottom: 45%;
+    transform: translateY(-50%);
     background: linear-gradient(120deg, #2575fc, #6a11cb);
     color: #ffffff;
     border: none;
@@ -330,66 +317,67 @@ nav ul li a:hover {
 
 .carousel-control.prev {
     left: 15px;
-   
-    
 }
 
 .carousel-control.next {
-    right:15px;
+    right: 15px;
 }
+
+/* Project Image */
 .project-image {
     width: auto;
-    height:auto;
+    height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
     transition: transform 0.3s ease-in-out;
 }
 
-
 .project-image:hover {
     transform: scale(1.05);
 }
 
-
-
-
-/* Contact Section Styles */
-.contact-section {
-    padding: 60px 20px;
-    background-color: #333;
-    color: white;
-    text-align: center;
-}
-
-.contact-section form {
+/* Indicators */
+.carousel-indicators {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-.contact-section input,
-.contact-section textarea {
-    padding: 12px;
-    margin: 10px;
-    width: 80%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.contact-section button {
-    padding: 12px 20px;
-    background-color: #e64833;
-    color: white;
-    border: none;
-    border-radius: 5px;
+.indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.contact-section button:hover {
-    background-color: #e85d4e;
+.indicator.active {
+    background-color: #6a11cb;
 }
 
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 90%; /* Full width for mobile */
+    }
+    
+    .carousel {
+        display: block; /* Stops horizontal scroll */
+    }
+
+    .carousel-item {
+        width: 100%;
+        margin: 15px auto;
+        text-align: center;
+    }
+
+    .carousel-control,
+    .carousel-indicators {
+        display: none !important; /* Hide on mobile */
+    }
+}
 /* Footer Styles */
 footer {
     text-align: center;

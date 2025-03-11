@@ -76,80 +76,84 @@ $(document).ready(function () {
     
 });*/
 
-$(document).ready(function () {
-    const carousel = $('.carousel'); // Carousel container
-    const items = $('.carousel-item'); // All carousel items
-    const itemCount = items.length; // Total number of items
-    const itemWidth = items.outerWidth(true); // Get the width of a single item, including margin
 
-    let currentIndex = 0; // Current active index
-    let isAnimating = false; // To prevent overlapping animations
+// Bootstrap handles the fade effect automatically with data-bs-ride="carousel"
+// This script ensures indicators update properly
+const carousel = document.querySelector('.carousel');
+const items = document.querySelectorAll('.carousel-item');
+const indicatorsContainer = document.querySelector('.carousel-indicators');
+const prevButton = document.querySelector('.carousel-control.prev');
+const nextButton = document.querySelector('.carousel-control.next');
+let currentIndex = 0;
 
-    // Function to move the carousel and highlight the active item
-    function moveCarousel() {
-        if (isAnimating) return; // Skip if already animating
-        isAnimating = true;
+// Function to check screen size and update layout
+function checkScreenSize() {
+    let isMobileView = window.innerWidth <= 768;
 
-        // Animate to the next item (horizontal carousel)
-        carousel.css('transition', 'transform 0.5s ease-in-out');
-        carousel.css('transform', `translateX(${-currentIndex * itemWidth}px)`);
+    if (isMobileView) {
+        // Disable carousel: Show all items stacked
+        carousel.style.display = "block";
+        carousel.style.transform = "none";
+        items.forEach(item => {
+            item.style.flex = "1 1 100%";
+            item.style.display = "block";
+            item.style.marginBottom = "20px"; // Adds spacing between projects
+        });
 
-        // Highlight the active item and reset others
-        items.removeClass('active'); // Remove 'active' class from all items
-        $(items[currentIndex]).addClass('active'); // Add 'active' class to the current item
-
-        // Cycle through the items smoothly
-        setTimeout(() => {
-            isAnimating = false;
-        }, 500); // Match transition duration
-    }
-
-    // Next button functionality
-    $('.next').click(function () {
-        currentIndex++;
-        if (currentIndex >= itemCount) {
-            currentIndex = 0; // Reset to first item if we reach the end
-        }
-        moveCarousel();
-    });
-
-    // Previous button functionality
-    $('.prev').click(function () {
-        if (isAnimating) return; // Skip if already animating
-        if (currentIndex === 0) {
-            currentIndex = itemCount - 1; // Jump to last item if at the first one
-        } else {
-            currentIndex--;
-        }
-        moveCarousel();
-    });
-
-    // Adjust layout for smaller screens (no carousel, just column format)
-    if ($(window).width() <= 767) {
-        // Switch to a column layout for small screens
-        carousel.css('display', 'block');
-        items.css('display', 'block'); // Stack items vertically
-        $('.next, .prev').hide(); // Hide navigation buttons on small screens
+        // Hide navigation controls & indicators
+        prevButton.style.display = "none";
+        nextButton.style.display = "none";
+        if (indicatorsContainer) indicatorsContainer.style.display = "none";
     } else {
-        // Ensure the carousel is in the correct state for larger screens
-        $('.next, .prev').show(); // Show navigation buttons for large screens
-        carousel.css('display', 'flex'); // Keep the carousel as flex for horizontal layout
-    }
+        // Enable carousel: One project per slide
+        carousel.style.display = "flex";
+        items.forEach(item => {
+            item.style.flex = "0 0 100%";
+            item.style.display = "block";
+        });
 
-    // Optional: Recheck the layout when the window resizes
-    $(window).resize(function () {
-        if ($(window).width() <= 767) {
-            // Switch to column layout for small screens
-            carousel.css('display', 'block');
-            items.css('display', 'block');
-            $('.next, .prev').hide(); // Hide navigation buttons
-        } else {
-            // Switch back to the carousel for large screens
-            $('.next, .prev').show();
-            carousel.css('display', 'flex');
-        }
-    });
+        // Show navigation controls & indicators
+        prevButton.style.display = "block";
+        nextButton.style.display = "block";
+        if (indicatorsContainer) indicatorsContainer.style.display = "flex";
+    }
+}
+
+// Update carousel navigation (only if not in mobile view)
+function updateCarousel() {
+    if (window.innerWidth > 768) {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        items.forEach((item, index) => {
+            item.classList.toggle('active', index === currentIndex);
+        });
+        document.querySelectorAll('.carousel-indicators div').forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+}
+
+// Navigation buttons
+prevButton.addEventListener('click', () => {
+    if (window.innerWidth > 768) {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+    }
 });
+
+nextButton.addEventListener('click', () => {
+    if (window.innerWidth > 768) {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    }
+});
+
+// Listen for window resize
+window.addEventListener('resize', checkScreenSize);
+
+// Run on page load
+checkScreenSize();
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
