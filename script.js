@@ -10,6 +10,13 @@ $(document).ready(function () {
         }, 1000);
     });
 
+      function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('show');
+  }
+
+
+  
     // jQuery for form submission animation
     $('#contact-form').submit(function (event) {
         event.preventDefault();
