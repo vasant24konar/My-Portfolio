@@ -47,6 +47,12 @@ body {
 
 /* Navigation Styles */
 /* === Navbar Hamburger Menu for Mobile === */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -54,6 +60,7 @@ body {
   background-color: #000; /* solid black */
   position: fixed;
   top: 0;
+  padding: 10px 20px;
   width: 100%;
   z-index: 1000;
 }
@@ -116,6 +123,7 @@ body {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    padding: 10px 20px;
   }
   .navbar ul.show {
     display: flex;
@@ -440,7 +448,7 @@ nav ul li a {
   
   .education-item span {
     font-style: italic;
-    color: #ccc;
+    color: #413f3f;
   }
   
 
@@ -601,6 +609,14 @@ nav ul li a {
   box-sizing: border-box;
   
 }
+.container {
+  
+  width: 100%;
+  margin: 10% auto;
+
+  box-sizing: border-box;
+  /* or whatever white shade you're using */
+}
 
   .hamburger {
     display: block;
@@ -628,7 +644,25 @@ nav ul li a {
     text-decoration: none;
   }
 
+  .education-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+  }
   
+  .education-item p {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+  
+  .education-item span {
+    font-style: italic;
+    color: #413f3f;
+    font-size: 10px;
+  }
+  .education-item li{
+    font-size: 12px;
+  }
 }
 
 /* Responsive Styling */
@@ -646,11 +680,24 @@ nav ul li a {
         margin: 15px auto;
         text-align: center;
     }
-
+   
+.carousel h3{
+    font-size: 15px;
+}
+.carousel p{
+    font-size: 12px;
+}
     .carousel-control,
     .carousel-indicators {
         display: none !important; /* Hide on mobile */
     }
+    footer {
+    text-align: center;
+    padding: 2px;
+    font-size: 12px;
+    background-color: #292b2c;
+    color: white;
+}
 }
 /* Footer Styles */
 footer {
@@ -746,6 +793,8 @@ footer {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+
 
 /* Certifications Section */
 #certifications {
@@ -856,7 +905,9 @@ footer {
 #contact-btn:hover {
     background-color: #1abc9c;
 }
-
+.contact-button-wrapper{
+    padding-bottom:10px;
+}
 /* Contact Form */
 #contact-form {
     margin-top: 20px;
@@ -874,8 +925,8 @@ footer {
    
 }
 .contact-icon {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 5px;
     
 }
@@ -886,9 +937,14 @@ footer {
     padding: 5px 10px;
     font-size: 12px;
 }
+.contact-button-wrapper{
+    padding-bottom:20px;
+}
+ 
 .contact-link{
     font-size: 8px;
 }
+
 }
 #contact-form input, #contact-form textarea {
     width: 50%;
@@ -1113,10 +1169,15 @@ nav ul li a:hover {
     }
 .intro {
     min-height: auto;  /* Remove fullscreen height */
-    padding: 40px 20px; /* Add some breathing room */
+ 
     text-align: center;
   }
+ .intro-content {
+width:4500px;
+height: 300px;
+padding-top: 30%;
 
+ }
     .intro-content h1 {
         font-size: 15px;
     }
