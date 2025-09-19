@@ -410,7 +410,7 @@ nav ul li a {
   
   .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 44.8px;
     font-weight: bold;
     margin-bottom: 40px;
     position: relative;
@@ -750,11 +750,7 @@ footer {
 }
 
 
-#about-me h2 {
-    font-size: 2.8em; /* Larger heading size */
-    color: #000;
-    margin-bottom: 20px;
-}
+
 
 #about-me p {
     font-size: 1.2em; /* Adjust text size */
@@ -770,9 +766,7 @@ footer {
     width: 100%;
 }
 @media (max-width: 768px) {
-    #about-me h2 {
-        font-size: 2em;
-    }
+  
 
     #about-me p {
         font-size: 1em;
@@ -786,11 +780,6 @@ footer {
     text-align: center;
 }
 
-#skills h2 {
-    font-size: 2.8em;
-    color: #000;
-    margin-bottom: 30px;
-}
 
 .skills-container {
     display: flex;
@@ -825,11 +814,7 @@ footer {
     text-align: center;
 }
 
-#certifications h2 {
-    font-size: 2.8em;
-    color: #000;
-    margin-bottom: 30px;
-}
+
 
 .certifications-container {
     display: flex;
@@ -868,8 +853,14 @@ footer {
     }
 
     .certificate-card {
-        width: 90%; /* Adjusts the card width for smaller screens */
+        width: 250px; 
+        height:250px;
     }
+    .certificate-card h1 {
+    font-size:18px;
+    color: #555;
+    margin-top: 10px;
+}
 }
 #contact {
     padding: 10px 10px;
@@ -880,10 +871,7 @@ footer {
    justify-content: center;
 }
 
-#contact h2 {
-    font-size: 2.8em;
-   
-}
+
 
 .contact-icons {
     display: flex;
@@ -943,18 +931,17 @@ footer {
     margin: 10px 0 5px;
 }
 @media (max-width: 768px) {
-    #contact h2 {
-    font-size:18px;
-   
-}
+ 
 .contact-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 5px;
-    
+}
+.contact-icons p{
+font-size: 12px;
 }
 .contact-icons{
-    gap: 5px;
+    gap: 15px;
 }
 #contact-btn {
     padding: 5px 10px;
@@ -1279,5 +1266,12 @@ padding-top: 30%;
     margin-top: 10px;
     padding: 8px 8px;
   }
+
 }
 
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 34px;   /* smaller font size for section titles */
+    margin-bottom: 10px;
+  }
+}
