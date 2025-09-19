@@ -4,7 +4,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var target = $(this).attr("href");
-
+        var headerHeight = $('header').outerHeight(); // gets header height
         $('html, body').animate({
             scrollTop: $(target).offset().top
         }, 1000);
@@ -15,6 +15,12 @@ $(document).ready(function () {
     menu.classList.toggle('show');
   }
 
+// Close mobile menu when a nav link is clicked
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navLinks").classList.remove("show");
+  });
+});
 
   
     // jQuery for form submission animation
@@ -193,4 +199,26 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Failed to send notification. Please try again.');
         });
     });
+});
+
+
+document.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight;
+  const winHeight = window.innerHeight;
+  const scrolled = (scrollY + winHeight) / docHeight;
+
+  // Show when scrolled more than 75%
+  if (scrolled >= 0.75) {
+    document.getElementById("backToTop").style.display = "block";
+  } else {
+    document.getElementById("backToTop").style.display = "none";
+  }
+});
+
+document.getElementById("backToTop").addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 });
