@@ -82,8 +82,10 @@ body {
 }
 
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     padding-top: 0;
     background: transparent;
@@ -429,7 +431,7 @@ body.mobile-menu-open {
 
 .hero-section {
     position: relative;
-    min-height: calc(100vh - 74px);
+    min-height: 100vh;
     display: grid;
     align-items: center;
     overflow: hidden;
