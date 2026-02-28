@@ -20,8 +20,7 @@
     const aboutReadMoreBtn = document.getElementById("about-read-more");
     const aboutP1Full = (aboutP1?.textContent || "").trim();
     const aboutP2Full = (aboutP2?.textContent || "").trim();
-    const aboutMobileLead = "I design and build scalable backend systems, REST APIs, and database-driven applications using Golang and modern development tools. I have contributed to production applications used by real users,";
-    const aboutMobileRemainder = "handling backend logic, API integrations, and data processing to ensure reliable and efficient performance.";
+    const aboutMobileLead = "I design and build scalable backend systems, REST APIs, and database-driven applications using Golang and modern development tools. I have contributed to production applications used by real users...";
     const heroVideo = document.querySelector(".background-video");
     const canvas = document.getElementById("bg-canvas");
     const track = document.getElementById("project-track");
@@ -38,7 +37,7 @@
     let autoSlideTimer = null;
     let aboutSequenceStarted = false;
     let aboutExpanded = false;
-    const isMobileProjectLayout = () => window.matchMedia("(max-width: 760px)").matches;
+    const isMobileProjectLayout = () => window.matchMedia("(max-width: 980px)").matches;
     const isSmallAboutScreen = () => window.matchMedia("(max-width: 640px)").matches;
 
     const closeMobileMenu = () => {
@@ -198,7 +197,7 @@
         }
         if (isSmallAboutScreen()) {
             aboutP1.dataset.fullText = aboutMobileLead;
-            aboutP2.dataset.fullText = `${aboutMobileRemainder}\n\n${aboutP2Full}`;
+            aboutP2.dataset.fullText = aboutP2Full;
             return;
         }
         aboutP1.dataset.fullText = aboutP1Full;
@@ -260,6 +259,13 @@
     aboutReadMoreBtn?.addEventListener("click", () => {
         if (!aboutExpanded) {
             aboutExpanded = true;
+            if (aboutP1) {
+                aboutP1.textContent = aboutP1Full;
+                aboutP1.dataset.fullText = aboutP1Full;
+                aboutP1.dataset.typed = "true";
+                aboutP1.classList.remove("typing-active", "seq-pending");
+                aboutP1.classList.add("typing-done");
+            }
             aboutP2?.classList.add("show");
             aboutReadMoreBtn.textContent = "Read less";
             typeElement(aboutP2);
@@ -400,7 +406,7 @@
                 aboutReadMoreBtn.textContent = aboutExpanded ? "Read less" : "Read more";
             }
         }
-        if (window.innerWidth > 760) {
+        if (window.innerWidth > 980) {
             closeMobileMenu();
         }
     });
@@ -427,6 +433,7 @@
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
+        const toEmail = "vasant.24konar@gmail.com";
 
         if (!name || !email || !message) {
             alert("Please fill in all fields.");
@@ -438,11 +445,13 @@
                 "service_krk1nkk",
                 "template_9nb0kjq",
                 {
+                    to_email: toEmail,
                     from_name: name,
                     from_email: email,
+                    reply_to: email,
+                    subject: `Portfolio contact from ${name}`,
                     message: message,
-                },
-                "5cXLuIGPqxEaYamF3"
+                }
             )
             .then(() => {
                 alert("Message sent successfully.");
@@ -450,7 +459,8 @@
             })
             .catch((error) => {
                 console.error("EmailJS error:", error);
-                alert("Failed to send notification. Please try again.");
+                const reason = error?.text || error?.message || "Unknown error";
+                alert(`Failed to send notification: ${reason}`);
             });
     });
 
