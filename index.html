@@ -1,317 +1,324 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasant's Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasant Konar | Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="Thumbnail/logo vector.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        emailjs.init("5cXLuIGPqxEaYamF3"); // Replace with your actual public key
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("5cXLuIGPqxEaYamF3");
     </script>
 </head>
 <body>
-    <!-- UPDATED HEADER WITH HAMBURGER MENU -->
-<header>
-  <div class="nav-container">
-    <!-- LOGO IMAGE (circle-shaped via CSS) -->
-  
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <!-- HAMBURGER BUTTON (visible on small screens) -->
-    
-
-<nav class="navbar">
-    <div class="navbar-container">
-  <div class="logo">
-    
-    <img src="Thumbnail/logo.jpg" alt="Logo" class="logo">
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-  </div>
-  <ul class="nav-links" id="navLinks">
-    <div class="close-btn" onclick="toggleMenu()">✕</div>
-    <li><a href="#about-me">About Me</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-  </div>
-</header>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("show");
-  }
-</script>
-
-
-<div class="container">
-    <section id="hero" class="hero-section">
-  <section class="intro-section">
-    <div class="video-wrapper">
-      <video autoplay muted loop class="background-video">
-        <source src="Thumbnail/Backgroundvideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div class="intro-content">
-      <h1>Hi, I'm Vasant!</h1>
-      <p>I'm a Web Developer, UI/UX Designer, and a Content Creator.</p>
-      <a href="#contact" class="btn">Contact Me</a>
-    </div>
-  </section>
-</section>
-
-    <!--About Me Section-->
-    <section id="about-me">
-        <h2 class="section-title">About Me</h2>
-        <p>I’m Vasant Konar, a Web Developer and Flutter enthusiast with hands-on experience in building mobile and web applications using Flutter Flow, REST APIs, and database integrations. I’ve worked on impactful projects like JollyHires (50K+ downloads), HawkEyeX (AI crack detection system), and GeMLoot (browser extension), blending creative UI/UX design with solid backend functionality. Alongside development, I also bring expertise in SEO, digital marketing, and design tools like Figma, Photoshop, and CorelDRAW driving both technical and creative solutions that make a real-world impact.</li>
-        </p>
-    </section>
-
-    <!--Education Section-->
-    <section id="education" class="education-section">
+    <header class="site-header">
         <div class="container">
-          <h2 class="section-title">Education</h2>
-          <div class="education-content">
-            <div class="education-item">
-              <h3>Bachelor of Technology in Computer Science</h3>
-              <p><strong>Ahmedabad Institute Of Technology</strong> | <span>2021 - 2025</span></p>
-              <li> CGPA: 9.15(till now) </li>
-               <li>Focused on Web Development, Cloud Computing, and Artificial Intelligence.</li> 
-                <li>Developed hands-on expertise through academic projects, hackathons, and internships.</li>
-                <li>Actively engaged in learning emerging technologies to build innovative solutions. </li>
-            </div>
-            <div class="education-item">
-              <h3>High School </h3>
-              <p><strong>Ananya Vidyalaya</strong> | <span>2020 - 2021</span></p>
-              <li>Specialized in Science (PCM). Achieved an excellent academic record.</li>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!--Project Section-->
-      <section id="projects" class="projects-section">
-        <h2 class="section-title">Projects</h2>
-        <div class="carousel-container">
-            <div class="carousel">
-                <!-- Project 1: HawkEyeX -->
-                <div class="carousel-item">
-                    <img src="Thumbnail/HawkEyeX.jpg" alt="HawkEyeX Screenshot" class="project-image">
-                    <h3>HawkEyeX</h3>
-                    <p><strong>Technologies:</strong> Python, HTML, CSS</p>
-                    <p>Automated crack detection system using image processing. Enhanced safety by identifying structural defects early through edge detection algorithms and OpenCV.</p>
-                    <a href="https://github.com/mannsoni/HawkEyeX" target="_blank" class="project-link">View Project</a>
-                </div>
-                
-                <!-- Project 2: JollyHires -->
-                <div class="carousel-item">
-                    <img src="Thumbnail/JollyHires.jpg" alt="JollyHires App Screenshot" class="project-image">
-                    <h3>JollyHires</h3>
-                    <p><strong>Technologies:</strong> Flutter Flow, Superbase</p>
-                    <p>App for managing candidate profiles, job listings, and real-time communication. Published on Play Store with 50K+ downloads.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.jollyhires.jobs" target="_blank" class="project-link">View on Play Store</a>
-                </div>
-    
-                <!-- Project 3: GeMLoot -->
-                <div class="carousel-item">
-                    <img src="Thumbnail/GemLoot.jpg" alt="GeMLoot Screenshot" class="project-image">
-                    <h3>GeMLoot</h3>
-                    <p><strong>Technologies:</strong> JavaScript, HTML, CSS</p>
-                    <p>Browser extension to compare prices across e-commerce platforms using web scraping. Real-time price updates and notifications.</p>
-                    <a href="https://github.com/mannsoni/GeMloot" target="_blank" class="project-link">View Project</a>
-                </div>
-    
-                <!-- Project 4: Smart File Sorter -->
-                <div class="carousel-item">
-                    <img src="Thumbnail/Smart File Sorting.jpg" alt="Smart File Sorter Screenshot" class="project-image">
-                    <h3>Smart File Sorter</h3>
-                    <p><strong>Technologies:</strong> Python, Tkinter</p>
-                    <p>Organized folder contents into categories, provided real-time file stats, and featured intuitive visual icons for file types.</p>
-                    <a href="https://github.com/vasant24konar/Smart-File-Sorter" target="_blank" class="project-link">View Project</a>
-                </div>
-    
-                <!-- Project 5: Ceorra ATS -->
-                <div class="carousel-item">
-                    <img src="Thumbnail/Ceorra ATS.png" alt="Ceorra ATS Screenshot" class="project-image">
-                    <h3>Ceorra ATS</h3>
-                    <p><strong>Technologies:</strong> Flutter Flow, Superbase, Xano</p>
-                    <p>A user-friendly sales management and CRM tool with features like lead tracking, user authentication, and a streamlined dashboard, enhancing collaboration and sales efficiency. Actively used by my previous company.</p>
-                    <a href="https://ceorrabenchsales.flutterflow.app/login" target="_blank" class="project-link">View Project</a>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Carousel Navigation (Hidden in Mobile) -->
-        <button class="carousel-control prev">❮</button>
-        <button class="carousel-control next">❯</button>
-    
-        <!-- Carousel Indicators (Hidden in Mobile) -->
-        <div class="carousel-indicators">
-            <div class="indicator active"></div>
-            <div class="indicator"></div>
-            <div class="indicator"></div>
-            <div class="indicator"></div>
-            <div class="indicator"></div>
-        </div>
-    </section>
-    
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!--Skill Section-->
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container" >
-            <div class="skill">
-                <img src="Thumbnail\HTML&CSS.png" alt="HTML & CSS" class="skill-logo" />
-                <p><h1>HTML & CSS</h1></p>
-            </div>
-            <div class="skill">
-                <img src="Thumbnail\FlutterFlow.png" alt="Flutter Flow" class="skill-logo" />
-                <p><h1>Flutter Flow</h1></p></div>
-            <div class="skill">
-                <img src="Thumbnail\Python.png" alt="Python" class="skill-logo" />
-               <p> <h1>Python</h1></p>
-            </div>
-            <div class="skill">
-                <img src="Thumbnail\JS.png" alt="JavaScript" class="skill-logo" />
-               <p> <h1>JavaScript</h1></p>
-            </div>
-             <div class="skill">
-                <img src="Thumbnail\Firebase.png" alt="Firebase" class="skill-logo" />
-                <p><h1>Firebase</h1></p>
-            </div>
-            <div class="skill">
-                <img src="Thumbnail\UIUX.png" alt="UI/UX Designing" class="skill-logo" />
-                <p><h1>UI/UX Designing</h1></p>
-            </div>
-            <div class="skill">
-                <img src="Thumbnail\Canva.png" alt="Canva" class="skill-logo" />
-                    <p><h1>Canva</h1> </p>
-            </div>
-            <div class="skill">
-                <img src="Thumbnail\Figma.png" alt="Figma" class="skill-logo" />
-                    <p><h1>Figma</h1></p>
-            </div>
-        </div>
-    </section>
-    
-    <!--Certificate Section-->
-    <section id="certifications">
-        <h2 class="section-title">Certifications</h2>
-        <div class="certifications-container">
+            <div class="topbar-pill nav-wrap">
+                <a href="#hero" class="brand" aria-label="Go to top">
+                    <img src="Thumbnail/logo vector.jpg" alt="Logo" class="logo-img">
+                </a>
 
-            
-            <!-- Certification 1 -->
-            <div class="certificate-card">
-                <a href="https://drive.google.com/file/d/13f8FiAQKA_mS7ffGKWgXQEQ694iAlfAQ/view?usp=sharing" target="_blank">
-                    <img src="Thumbnail\Vasant Konar-2_page-0001.jpg" alt="DSA-based hackathon organized by Hack Champ" class="certificate-img">
-                </a>
-                <h1>DSA-based hackathon held by Hack Champ</h1>
-            </div>
-    
-            <!-- Certification 2 -->
-            <div class="certificate-card">
-                <a href="https://drive.google.com/file/d/11Mk5MP9V-ytPArNLgSHog633S0OHxRY3/view?usp=sharing" target="_blank">
-                    <img src="Thumbnail\ThmbnailSIH Hackathon 2023.jpg" alt="SIH Hackathon 2023" class="certificate-img">
-                </a>
-                <h1>Internal SIH Hackathon 2023</h1>
-            </div>
-    
-            <!-- Certification 3 -->
-            <div class="certificate-card">
-                <a href="https://drive.google.com/file/d/13oYNsFCNQYD31fZvGEOcAUPfYiKta5Ym/view?usp=sharing" target="_blank">
-                    <img src="Thumbnail\image-400x300 (2).jpg" alt="Code Unnati Innovation Marathon" class="certificate-img">
-                </a>
-                <h1>Code Unnati Innovation Marathon</h1>
+                <nav class="main-nav" aria-label="Main navigation">
+                    <a href="#about-me">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+
+                <div class="nav-actions">
+                    <label class="theme-switch" aria-label="Toggle dark and light mode">
+                        <input type="checkbox" id="theme-toggle" />
+                        <span class="slider">
+                            <span class="stars" aria-hidden="true"></span>
+                            <span class="clouds" aria-hidden="true"></span>
+                        </span>
+                    </label>
+                </div>
             </div>
 
-            <!-- Certification 4-->
-            <div class="certificate-card">
-                <a href="https://drive.google.com/file/d/13cTF_Fk_FoFAF0Km16_X-WzvHKXGuzkH/view?usp=sharing" target="_blank">
-                    <img src="Thumbnail\image-400x300 (1).jpg" alt="Advance course on Emerging Technology" class="certificate-img">
-                </a>
-                <h1>Advance Course on Emerging Technology</h1>
-            </div>
-
-            <!-- Certification 5 -->
-            <div class="certificate-card">
-                <a href="https://drive.google.com/file/d/13rMTwc23pO5fZzD11HNAGy5ipDyavfE0/view?usp=sharing" target="_blank">
-                    <img src="Thumbnail\image-400x300 (3).jpg" alt="Azure Fundamental Challenges" class="certificate-img">
-                </a>
-                <h1>Azure Fundamental Challenges</h1>
-            </div>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false">⋮</button>
+            <div id="mobile-drawer-overlay" class="mobile-drawer-overlay" aria-hidden="true"></div>
+            <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile navigation">
+                <div class="mobile-drawer-head">
+                    <span>Menu</span>
+                    <button id="mobile-drawer-close" class="mobile-drawer-close" type="button" aria-label="Close menu">×</button>
+                </div>
+                <nav class="main-nav main-nav-mobile" aria-label="Mobile navigation">
+                    <a href="#about-me">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="nav-actions nav-actions-mobile">
+                    <label class="theme-switch" aria-label="Toggle dark and light mode">
+                        <input type="checkbox" id="mobile-theme-toggle" />
+                        <span class="slider">
+                            <span class="stars" aria-hidden="true"></span>
+                            <span class="clouds" aria-hidden="true"></span>
+                        </span>
+                    </label>
+                </div>
+            </aside>
         </div>
-    </section>
-    
-    
-    
-<!--Contact Section-->
-    <section id="contact" >
-        <h2 class="section-title">Contact Me</h2> </section></div>
-        
-        <div class="contact-icons" class="btn">
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/vasant-konar-576793255" target="_blank" class="contact-link">
-                <img src="Thumbnail\linkedin.png"alt="LinkedIn" class="contact-icon">
-                <p>LinkedIn</p>
-            </a>
-    
-            <!-- GitHub -->
-            <a href="https://github.com/vasant24konar " target="_blank" class="contact-link">
-                <img src="Thumbnail\github.png" alt="GitHub" class="contact-icon">
-                <p>GitHub</p>
-            </a>
-    
-            <!-- Email -->
-            <a href="mailto:vasant24konar@gmail.com" class="contact-link">
-                <img src="Thumbnail\email.png" alt="Email" class="contact-icon">
-                <p>Email</p>
-            </a>
-    
-            <!-- Contact Number -->
-            <a href="tel:+919316662350" class="contact-link">
-                <img src="Thumbnail\phone.png" alt="Phone" class="contact-icon">
-                <p>Phone</p>
+    </header>
 
-                <!-- Resume Download -->
-              <a href="https://drive.google.com/file/d/1SUVYxHYR9ywo8ezcudhdx5vN0Pgk6-nA/view?usp=sharing" 
-   class="contact-link" 
-   target="_blank" 
-   rel="noopener noreferrer">
-    <img src="Thumbnail/resume.png" alt="Resume" class="contact-icon">
-    <p>Resume</p>
-</a>
+    <main>
+        <section id="hero" class="hero-section section-block">
+            <video autoplay muted loop playsinline class="background-video">
+                <source src="Thumbnail/Backgroundvideo_v2.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content reveal">
+                <h1 class="type-target">Hi, I'm Vasant.</h1>
+                <p class="hero-sub type-target">Backend Developer in Golang, API builder, and UI UX product creator.</p>
+                <a href="#projects" class="btn-primary view-project-btn type-target">View Projects</a>
             </div>
-        </div>
-    <div class="contact-button-wrapper">
-        <button id="contact-btn" class="btn">Contact Me</button>
-    </div>
-        <!-- Hidden Form -->
-        <form id="contact-form" style="display: none;">
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Your Name" required/>
-    
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Your Email" required/>
-    
-            <label for="message">Message:</label>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-    
-            <button type="button" id="send-btn">Send Notification</button>
-        </form>
-    </section>
-    <button id="backToTop">↑</button>
+        </section>
+
+        <section id="about-me" class="section-block">
+            <div class="container about-layout reveal">
+                <div class="about-copy">
+                    <p class="about-greet">Hi, I'm Vasant</p>
+                    <h2 class="type-target about-heading">
+                        <span>Backend Developer</span> 
+                    </h2>
+                    <p id="about-p1" class="type-target about-para">
+                        I design and build scalable backend systems, REST APIs, and database-driven applications using Golang and modern development tools.
+                        I have contributed to production applications used by real users, handling backend logic, API integrations, and data processing to ensure reliable and efficient performance.
+                    </p>
+                    <p id="about-p2" class="type-target about-para about-para-extra seq-pending">
+                        Alongside backend development, I also have experience with frontend development, FlutterFlow, and UI/UX design, which helps me build complete, user-focused products.
+                    </p>
+                    <button type="button" id="about-read-more" class="btn-secondary about-read-more" hidden>Read more</button>
+                    <div class="about-actions">
+                        <a href="#projects" class="btn-primary view-project-btn">View Projects</a>
+                        <a href="Vasant_Konar_Resume_2026.pdf" class="btn-secondary" download>Download Resume</a>
+                    </div>
+                </div>
+                <div class="about-photo-wrap">
+                    <div class="about-blob"></div>
+                    <div class="about-blob about-blob-secondary"></div>
+                    <div class="about-dots" aria-hidden="true"></div>
+                    <img id="profile-photo" src="Vasant_Pr_image.jpeg" alt="Vasant Konar photo" class="about-photo">
+                    <div class="about-badge badge-top">Backend Developer</div>
+                    <div class="about-badge badge-mid">UI UX Designing</div>
+                    <div class="about-badge badge-bottom">Frontend Development</div>
+                    <div class="about-badge badge-left">FlutterFlow Apps</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section-block">
+            <div class="container reveal">
+                <h2 class="type-target">Education</h2>
+                <div class="edu-grid">
+                    <article class="edu-item edu-animate">
+                        <h3 class="type-target">Bachelor of Technology in Computer Science</h3>
+                        <p class="type-target">Ahmedabad Institute Of Technology | 2021 - 2025</p>
+                        <ul>
+                            <li class="type-target">CGPA: 9.15(till now)</li>
+                            <li class="type-target">Focused on Web Development, Cloud Computing, and Artificial Intelligence.</li>
+                            <li class="type-target">Developed hands-on expertise through academic projects, hackathons, and internships.</li>
+                            <li class="type-target">Actively engaged in learning emerging technologies to build innovative solutions.</li>
+                        </ul>
+                    </article>
+                    <article class="edu-item edu-animate">
+                        <h3 class="type-target">High School</h3>
+                        <p class="type-target">Ananya Vidyalaya | 2020 - 2021</p>
+                        <ul>
+                            <li class="type-target">Specialized in Science (PCM). Achieved an excellent academic record.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section-block">
+            <div class="container reveal">
+                <h2 class="type-target">Experience</h2>
+                <div class="experience-list">
+                    <article class="exp-item">
+                        <div class="exp-head">
+                            <span class="role-pill type-target">Backend Developer</span>
+                            <span class="timeline type-target">Feb 2025 - Present</span>
+                        </div>
+                        <h3 class="type-target">Independent and Client Projects</h3>
+                        <p class="type-target">Developing REST APIs in Golang, structuring backend services, and optimizing PostgreSQL and Supabase data operations.</p>
+                    </article>
+                    <article class="exp-item">
+                        <div class="exp-head">
+                            <span class="role-pill type-target">App Developer</span>
+                            <span class="timeline type-target">Jun 2024 - Jan 2025</span>
+                        </div>
+                        <h3 class="type-target">JollyHires Product Team</h3>
+                        <p class="type-target">Worked across frontend and backend in FlutterFlow stack, handled authentication, app logic, and release support.</p>
+                    </article>
+                    <article class="exp-item">
+                        <div class="exp-head">
+                            <span class="role-pill type-target">Web and Growth Engineer</span>
+                            <span class="timeline type-target">2023 - 2024</span>
+                        </div>
+                        <h3 class="type-target">Securus CCTV</h3>
+                        <p class="type-target">Improved SEO performance and supported campaign-focused digital execution with design and web updates.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-block">
+            <div class="container reveal">
+                <h2 class="type-target">Projects</h2>
+                <div class="project-carousel project-showcase">
+                    <button class="carousel-btn project-nav prev" id="prev-project" type="button" aria-label="Previous project">&#10094;</button>
+                    <div class="project-viewport" id="project-viewport">
+                        <div class="project-track" id="project-track">
+                            <article class="project-card" data-link="https://github.com/mannsoni/HawkEyeX">
+                                <img src="Thumbnail/HawkEyeX.jpg" alt="HawkEyeX preview">
+                                <div class="project-meta">
+                                    <h3>HawkEyeX</h3>
+                                    <p class="tech">Python, OpenCV</p>
+                                    <p class="desc">Automated crack detection system using computer vision for structural safety checks.</p>
+                                    <a href="https://github.com/mannsoni/HawkEyeX" target="_blank" rel="noreferrer" class="project-open">View Project</a>
+                                </div>
+                            </article>
+                            <article class="project-card" data-link="https://play.google.com/store/apps/details?id=com.jollyhires.jobs">
+                                <img src="Thumbnail/JollyHires.jpg" alt="JollyHires preview">
+                                <div class="project-meta">
+                                    <h3>JollyHires</h3>
+                                    <p class="tech">FlutterFlow, Supabase</p>
+                                    <p class="desc">Recruitment app for candidate and job management, published with 50K+ downloads.</p>
+                                    <a href="https://play.google.com/store/apps/details?id=com.jollyhires.jobs" target="_blank" rel="noreferrer" class="project-open">View Project</a>
+                                </div>
+                            </article>
+                            <article class="project-card" data-link="https://github.com/mannsoni/GeMloot">
+                                <img src="Thumbnail/GemLoot.jpg" alt="GemLoot preview">
+                                <div class="project-meta">
+                                    <h3>GemLoot</h3>
+                                    <p class="tech">JavaScript, HTML, CSS</p>
+                                    <p class="desc">Browser extension for comparing prices across marketplaces with deal awareness.</p>
+                                    <a href="https://github.com/mannsoni/GeMloot" target="_blank" rel="noreferrer" class="project-open">View Project</a>
+                                </div>
+                            </article>
+                            <article class="project-card" data-link="https://github.com/vasant24konar/Smart-File-Sorter">
+                                <img src="Thumbnail/Smart File Sorting.jpg" alt="Smart File Sorter preview">
+                                <div class="project-meta">
+                                    <h3>Smart File Sorter</h3>
+                                    <p class="tech">Python, Tkinter</p>
+                                    <p class="desc">Desktop utility that auto-organizes files and tracks live status in folders.</p>
+                                    <a href="https://github.com/vasant24konar/Smart-File-Sorter" target="_blank" rel="noreferrer" class="project-open">View Project</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <button class="carousel-btn project-nav next" id="next-project" type="button" aria-label="Next project">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-block">
+            <div class="container reveal">
+                <h2 class="type-target">Skills</h2>
+                <div class="skills-marquee" id="skills-marquee">
+                    <div class="skills-track" id="skills-track">
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/Python.png" alt="Python" class="skill-icon">
+                            <h3>Python</h3>
+                            <p>Backend Logic</p>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/JS.png" alt="JavaScript" class="skill-icon">
+                            <h3>JavaScript</h3>
+                            <p>Web Features</p>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/Firebase.png" alt="Firebase" class="skill-icon">
+                            <h3>Firebase</h3>
+                            <p>Cloud Services</p>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/FlutterFlow.png" alt="FlutterFlow" class="skill-icon">
+                            <h3>FlutterFlow</h3>
+                            <p>App Builder</p>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/Figma.png" alt="Figma" class="skill-icon">
+                            <h3>Figma</h3>
+                            <p>UI Design</p>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/Canva.png" alt="Canva" class="skill-icon">
+                            <h3>Canva</h3>
+                            <p>Design Assets</p>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/HTML&CSS.png" alt="HTML and CSS" class="skill-icon">
+                            <h3>HTML and CSS</h3>
+                            <p>Responsive UI</p>
+                        </article>
+                        <article class="skill-card">
+                            <div class="skill-card-top"></div>
+                            <img src="Thumbnail/postgresql-clip-art-database-logo-png-removebg-preview.png" alt="Databases" class="skill-icon skill-icon-tight">
+                            <h3>PostgreSQL and Supabase</h3>
+                            <p>Data Layer</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-block contact-section">
+            <div class="container reveal">
+                <h2 class="type-target">Let's Connect</h2>
+                <div class="contact-shell">
+                    <form id="contact-form" class="contact-form">
+                        <label for="name" class="type-target">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+
+                        <label for="email" class="type-target">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+
+                        <label for="message" class="type-target">Message</label>
+                        <textarea id="message" placeholder="Enter your message" required></textarea>
+
+                        <button type="button" id="send-btn" class="btn-primary type-target">Send Message</button>
+                    </form>
+
+                    <div class="contact-side">
+                        <p class="type-target">Have a project, opportunity, or question?<br>Feel free to send a message or connect with me.</p>
+                        <div class="social-row">
+                            <a href="mailto:vasant.24konar@gmail.com" class="type-target">Email Me</a>
+                            <a href="https://www.linkedin.com/in/vasant-konar-576793255" target="_blank" rel="noreferrer" class="type-target">LinkedIn</a>
+                            <a href="https://github.com/vasant24konar" target="_blank" rel="noreferrer" class="type-target">GitHub</a>
+                            <a href="tel:+919316662350" class="type-target">Phone</a>
+                        </div>
+                        <p class="contact-footline type-target">Based in India • Open to opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="to-top" class="to-top" type="button" aria-label="Back to top">&#8593;</button>
 
     <footer>
-        <p>&copy; 2024 Vasant. All Rights Reserved.</p>
+        <p class="type-target">&copy; <span id="year"></span> Vasant Konar. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
