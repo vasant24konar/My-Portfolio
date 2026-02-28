@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vasant Konar | Portfolio</title>
-    <link rel="icon" type="image/jpeg" href="Thumbnail/logo vector.jpg">
+    <link rel="icon" type="image/jpeg" href="Thumbnail/logo-vector.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        emailjs.init("5cXLuIGPqxEaYamF3");
+        emailjs.init({
+            publicKey: "5cXLuIGPqxEaYamF3",
+        });
     </script>
 </head>
 <body>
@@ -21,7 +23,7 @@
         <div class="container">
             <div class="topbar-pill nav-wrap">
                 <a href="#hero" class="brand" aria-label="Go to top">
-                    <img src="Thumbnail/logo vector.jpg" alt="Logo" class="logo-img">
+                    <img src="Thumbnail/logo-vector.jpg" alt="Logo" class="logo-img">
                 </a>
 
                 <nav class="main-nav" aria-label="Main navigation">
@@ -44,7 +46,7 @@
                 </div>
             </div>
 
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false">⋮</button>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false"><span class="menu-dots" aria-hidden="true"></span></button>
             <div id="mobile-drawer-overlay" class="mobile-drawer-overlay" aria-hidden="true"></div>
             <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile navigation">
                 <div class="mobile-drawer-head">
@@ -102,7 +104,7 @@
                     <button type="button" id="about-read-more" class="btn-secondary about-read-more" hidden>Read more</button>
                     <div class="about-actions">
                         <a href="#projects" class="btn-primary view-project-btn">View Projects</a>
-                        <a href="Vasant_Konar_Resume_2026.pdf" class="btn-secondary" download>Download Resume</a>
+                        <a href="Thumbnail/Vasant_Konar_Resume.pdf" class="btn-secondary" download>Download Resume</a>
                     </div>
                 </div>
                 <div class="about-photo-wrap">
@@ -210,7 +212,7 @@
                                 </div>
                             </article>
                             <article class="project-card" data-link="https://github.com/vasant24konar/Smart-File-Sorter">
-                                <img src="Thumbnail/Smart File Sorting.jpg" alt="Smart File Sorter preview">
+                                <img src="Thumbnail/Smart File Sorting.png" alt="Smart File Sorter preview">
                                 <div class="project-meta">
                                     <h3>Smart File Sorter</h3>
                                     <p class="tech">Python, Tkinter</p>
@@ -324,3 +326,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
