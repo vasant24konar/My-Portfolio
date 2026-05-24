@@ -32,6 +32,7 @@
     const sendBtn = document.getElementById("send-btn");
     const yearEl = document.getElementById("year");
     const toTopBtn = document.getElementById("to-top");
+    const skillsMarquee = document.getElementById("skills-marquee");
     const skillsTrack = document.getElementById("skills-track");
 
     let currentSlide = 0;
@@ -154,13 +155,46 @@
         eduObserver.observe(education);
     }
 
-    if (skillsTrack && !skillsTrack.dataset.loopReady) {
-        const original = Array.from(skillsTrack.children);
-        original.forEach((node) => {
-            skillsTrack.appendChild(node.cloneNode(true));
-        });
-        skillsTrack.dataset.loopReady = "true";
-    }
+    const buildSkillsLoop = () => {
+        if (!skillsTrack || !skillsMarquee) {
+            return;
+        }
+
+        if (!skillsTrack.dataset.baseMarkup) {
+            skillsTrack.dataset.baseMarkup = skillsTrack.innerHTML;
+        }
+
+        skillsTrack.innerHTML = skillsTrack.dataset.baseMarkup;
+        if (window.matchMedia("(min-width: 5000px)").matches) {
+            skillsTrack.style.removeProperty("--skills-loop-distance");
+            skillsTrack.style.removeProperty("--skills-loop-duration");
+            return;
+        }
+
+        const baseCards = Array.from(skillsTrack.children);
+        if (!baseCards.length) {
+            return;
+        }
+
+        const cardWidth = baseCards[0].getBoundingClientRect().width;
+        const trackStyle = window.getComputedStyle(skillsTrack);
+        const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || "0");
+        const singleSetWidth = (cardWidth + gap) * baseCards.length;
+        const requiredWidth = Math.max(skillsMarquee.getBoundingClientRect().width * 2.2, singleSetWidth * 2);
+        const extraCopies = Math.max(1, Math.ceil(requiredWidth / Math.max(singleSetWidth, 1)) - 1);
+        const loopDurationSeconds = Math.max(18, singleSetWidth / 110);
+
+        for (let i = 0; i < extraCopies; i += 1) {
+            baseCards.forEach((node) => {
+                skillsTrack.appendChild(node.cloneNode(true));
+            });
+        }
+
+        skillsTrack.style.setProperty("--skills-loop-distance", `${singleSetWidth}px`);
+        skillsTrack.style.setProperty("--skills-loop-duration", `${loopDurationSeconds}s`);
+    };
+
+    buildSkillsLoop();
 
     const typeElement = (el, onDone) => {
         if (!el || el.dataset.typed === "true") {
@@ -404,6 +438,7 @@
 
     window.addEventListener("resize", () => {
         setAboutCopyForViewport();
+        buildSkillsLoop();
         showSlide(currentSlide);
         startAutoSlide();
         if (!isSmallAboutScreen()) {

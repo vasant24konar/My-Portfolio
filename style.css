@@ -1016,7 +1016,7 @@ body[data-theme="dark"] .project-card {
     display: flex;
     gap: 0.9rem;
     align-items: stretch;
-    animation: scrollSkills 24s linear infinite;
+    animation: scrollSkills var(--skills-loop-duration, 24s) linear infinite;
     will-change: transform;
 }
 
@@ -1433,7 +1433,11 @@ body[data-theme="dark"] .skill-card-top {
     }
 
     .skills-track {
+        width: max-content;
+        display: flex;
         gap: 1.5rem;
+        align-items: stretch;
+        animation: scrollSkills 24s linear infinite;
     }
 
     .skill-card {
@@ -1452,6 +1456,13 @@ body[data-theme="dark"] .skill-card-top {
     .skill-icon {
         width: 86px;
         height: 86px;
+    }
+
+    .skills-marquee {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        overflow: hidden;
+        padding: 1rem 0 0;
     }
 
     #contact .container {
@@ -1501,6 +1512,23 @@ body[data-theme="dark"] .skill-card-top {
 
     .project-card img {
         height: 390px;
+    }
+
+    .skills-marquee {
+        width: 100%;
+        margin-left: 0;
+        overflow: visible;
+        padding: 1rem 0 0;
+    }
+
+    .skills-track {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+        justify-content: center;
+        gap: 1.5rem;
+        animation: none;
+        transform: none !important;
     }
 
     .skill-card {
@@ -1764,7 +1792,7 @@ footer {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-50%);
+        transform: translateX(calc(-1 * var(--skills-loop-distance, 50%)));
     }
 }
 
