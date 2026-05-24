@@ -28,6 +28,7 @@
     const slides = document.querySelectorAll(".project-card");
     const prevBtn = document.getElementById("prev-project");
     const nextBtn = document.getElementById("next-project");
+    const resumeMenus = document.querySelectorAll(".resume-menu");
     const sendBtn = document.getElementById("send-btn");
     const yearEl = document.getElementById("year");
     const toTopBtn = document.getElementById("to-top");
@@ -302,6 +303,24 @@
         return nextIndex;
     };
 
+    const syncProjectNav = () => {
+        if (!track || !slides.length || !viewport || !prevBtn || !nextBtn) {
+            return;
+        }
+        if (isMobileProjectLayout()) {
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+            return;
+        }
+        const step = getSlideStepPx();
+        const cardWidth = slides[0].getBoundingClientRect().width;
+        const viewportWidth = viewport.getBoundingClientRect().width;
+        const contentWidth = step * (slides.length - 1) + cardWidth;
+        const hasOverflow = contentWidth - viewportWidth > 8;
+        prevBtn.style.display = hasOverflow ? "" : "none";
+        nextBtn.style.display = hasOverflow ? "" : "none";
+    };
+
     const showSlide = (nextIndex) => {
         if (!track || !slides.length || !viewport) {
             return;
@@ -312,6 +331,7 @@
             slides.forEach((slide, idx) => {
                 slide.classList.toggle("active", idx === currentSlide);
             });
+            syncProjectNav();
             return;
         }
         const step = getSlideStepPx();
@@ -326,6 +346,7 @@
         slides.forEach((slide, idx) => {
             slide.classList.toggle("active", idx === currentSlide);
         });
+        syncProjectNav();
     };
 
     const startAutoSlide = () => {
@@ -334,6 +355,13 @@
         }
         clearInterval(autoSlideTimer);
         if (isMobileProjectLayout()) {
+            return;
+        }
+        const step = getSlideStepPx();
+        const cardWidth = slides[0]?.getBoundingClientRect().width || 0;
+        const viewportWidth = viewport?.getBoundingClientRect().width || 0;
+        const contentWidth = step * Math.max(0, slides.length - 1) + cardWidth;
+        if (contentWidth - viewportWidth <= 8) {
             return;
         }
         autoSlideTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
@@ -363,6 +391,14 @@
     document.querySelectorAll(".project-open").forEach((btn) => {
         btn.addEventListener("click", (event) => {
             event.stopPropagation();
+        });
+    });
+
+    document.addEventListener("click", (event) => {
+        resumeMenus.forEach((menu) => {
+            if (!menu.contains(event.target)) {
+                menu.removeAttribute("open");
+            }
         });
     });
 
